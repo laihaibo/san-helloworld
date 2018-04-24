@@ -1,0 +1,22 @@
+import san, { Component } from 'san';
+
+class App extends Comment {
+  static template = `<div>hello {{name}}</div>`;
+
+  initData() {
+    return {
+      name: 'san-webpack',
+    };
+  }
+}
+
+// const App = san.defineComponent({
+//   template: `<div>hello {{name}}</div>`,
+//   initData() {
+//     return {
+//       name: 'san',
+//     };
+//   },
+// });
+
+export default App;

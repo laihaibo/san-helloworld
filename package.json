@@ -1,0 +1,32 @@
+{
+  "name": "san-helloworld",
+  "version": "1.0.0",
+  "description": "san helloworld",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --config webpack.config.js",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laihaibo/san-helloworld.git"
+  },
+  "keywords": [],
+  "author": "laihaibo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/laihaibo/san-helloworld/issues"
+  },
+  "homepage": "https://github.com/laihaibo/san-helloworld#readme",
+  "dependencies": {
+    "san": "^3.5.6"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.7.1",
+    "san-loader": "0.0.7",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.0.15",
+    "webpack-dev-server": "^3.1.3"
+  }
+}
