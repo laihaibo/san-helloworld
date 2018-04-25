@@ -4,7 +4,7 @@
   "description": "san helloworld",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "ava",
     "dev": "parcel index.html",
     "build": "parcel build index.html NODE_ENV=production --public-url ./"
   },
@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^8.3.0",
+    "ava": "^0.25.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.6.1",
     "parcel-bundler": "^1.7.1",
