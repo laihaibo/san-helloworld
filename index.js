@@ -1,13 +1,7 @@
-import san from 'san';
+import App from './src/components/App';
 
-class App extends san.Component {
-  static template = `<div>hello {{name}}</div>`;
+import 'normalize.css';
 
-  initData() {
-    return {
-      name: san,
-    };
-  }
-}
+let myApp = new App();
 
-new App().attach(document.getElementById('root'));
+myApp.attach(document.getElementById('root'));
