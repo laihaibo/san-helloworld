@@ -1,25 +1,23 @@
 import san, { Component } from 'san';
 import styles from './index.css';
 
-// class App extends Component {
-//   static template = `<div class="{{styles.App}}">hello {{name}}</div>`;
+import Operator from '../Operator';
 
-//   initData() {
-//     return {
-//       name: 'world',
-//       styles,
-//     };
-//   }
-// }
+class App extends Component {
+  static components = {
+    opreator: Operator
+  };
 
-const App = san.defineComponent({
-  template: '<div>hello {{name}}!</div>',
+  static template = `<div class="{{styles.App}}">hello {{name}}
+  <opreator></opreator>
+  </div>`;
 
-  initData: function() {
+  initData() {
     return {
       name: 'world',
+      styles
     };
-  },
-});
+  }
+}
 
 export default App;
