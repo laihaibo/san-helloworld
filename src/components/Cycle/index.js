@@ -1,49 +1,80 @@
 import san, { Component, DataTypes } from 'san';
+
+import rName from '../../utils/rName';
+
+// import User from '../../Model/UserModel';
+
 import styles from './index.css';
 
 class Cycle extends Component {
   static template = `<div class="{{styles.Cycle}}">
-    <div>
-      <input type="text" value="{= name =}" placeholder="姓名（string）" />
-      <input id="age" type="number" value="{= age =}" placeholder="年龄（number）" min="{{1}}" />
-      <input type="text" value="{= desc =}" placeholder="简介（string）"  />
-    </div>
-    <div>
-      <button on-click="clear">移除信息</button>
-    </div>
-    <div>
-      <p>姓名：{{name}}</p>
-      <p>年龄：{{getAge}}</p>
-      <p>简介：{{desc}}</p>
-    </div>
+    <div><button on-click="add">添加</button></div>
+    <table>
+      <thead>
+        <tr>
+          <th>姓名</th>
+          <th>审核状态</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr s-for="item,index in items">
+          <th>{{item.name}}</th>
+          <th>{{item.status === true ? '合格' : item.status === false ? '不合格': '待审核'}}</th>
+          <th><button on-click="operate(index)">{{(item.status === true || item.status === false) ? '删除': '审核'}}</button></th>
+        </tr>
+      </tbody>
+    </table>
   </div>`;
 
   static dataTypes = {
-    name: DataTypes.string,
-    age: DataTypes.number,
-    desc: DataTypes.string
+    items: DataTypes.array
   };
 
   initData() {
     return {
       styles,
-      name: '',
-      age: 1,
-      desc: ''
+      items: []
     };
   }
 
-  static computed = {
-    getAge() {
-      const age = this.data.get('age');
-      return age ? age : '';
-    }
-  };
+  static computed = {};
 
-  clear() {
-    this.data.set('name', '');
-    this.data.set('age', 1);
-    this.data.set('desc', '');
+  created() {
+    this.init();
+  }
+
+  add(e) {
+    const user = { name: rName(), status: null };
+    this.data.push('items', user);
+  }
+
+  operate(index) {
+    const items = this.data.get('items');
+    const item = items[index];
+    if (item.status === true || item.status === false) {
+      this.data.removeAt('items', index);
+    } else {
+      this.data.set(`items[${index}].status`, true);
+    }
+  }
+
+  init() {
+    const items = [
+      {
+        name: '张三',
+        status: true
+      },
+      {
+        name: '李四',
+        status: false
+      },
+      {
+        name: '王五',
+        status: null
+      }
+    ];
+    this.data.set('items', items);
   }
 }
 

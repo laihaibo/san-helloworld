@@ -4,10 +4,10 @@ import styles from './index.css';
 import Cycle from '../Cycle';
 class App extends Component {
   static components = {
-    opreator: Operator
+    cycle: Cycle
   };
 
-  static template = `<div class="{{styles.App}}">hello {{name}}</div>`;
+  static template = `<div class="{{styles.App}}"><cycle></cycle></div>`;
 
   initData() {
     return {
