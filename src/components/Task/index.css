@@ -1,3 +1,11 @@
 .Task {
   color: red;
 }
+
+.Block {
+  background:red;width:100px;height:100px;
+}
+
+.BlockBlue {
+  background:blue;width:100px;height:100px;
+}
