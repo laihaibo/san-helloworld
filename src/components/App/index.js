@@ -1,12 +1,17 @@
 import san, { Component } from 'san';
 import styles from './index.css';
 
+import Task from '../Task';
+
 class App extends Component {
-  static template = `<div class="{{styles.App}}">hello {{name}}</div>`;
+  static components = {
+    task: Task
+  };
+
+  static template = `<div class="{{styles.App}}"><task /></div>`;
 
   initData() {
     return {
-      name: 'world',
       styles
     };
   }
