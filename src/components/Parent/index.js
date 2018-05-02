@@ -8,8 +8,8 @@ class Parent extends Component {
   };
 
   static template = `<div class="{{styles.Parent}}">
-  <child fromP="{{info}}"></child>
-  <p>我是父组件：<input value="{{= info =}}" /></p>
+  <child info="{{info}}"></child>
+  <p>我是父组件：<input value="{= info =}" /></p>
   </div>`;
 
   static dataTypes = {

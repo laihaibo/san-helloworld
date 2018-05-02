@@ -20,7 +20,9 @@ class Child extends Component {
 
   static computed = {};
 
-  created() {}
+  created() {
+    this.data.set('info', '');
+  }
 
   goBoard() {
     let info = this.data.get('info');
