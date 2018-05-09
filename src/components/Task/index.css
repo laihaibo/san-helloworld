@@ -1,3 +1,22 @@
-.Task {
-  color: red;
+.Task
+{
+    color: red;
+}
+
+.enter,
+.leave
+{
+    transition: all .5s;
+}
+
+.before-enter,
+.leave
+{
+    opacity: 0;
+}
+
+.enter,
+.before-leave
+{
+    opacity: 1;
 }
