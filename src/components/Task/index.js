@@ -28,11 +28,45 @@ class Task extends Component {
   created() {}
 
   toggle() {
-    console.log(this.data.get('show'));
     this.data.set('show', !this.data.get('show'));
   }
 
-  hook = {};
+  hook = {
+    enter(el, done) {
+      const steps = 20;
+      let curStep = 0;
+
+      function goStep() {
+        if (curStep >= steps) {
+          el.style.opacity = 1;
+          done();
+          return;
+        }
+
+        el.style.opacity = 1 / steps * curStep++;
+        requestAnimationFrame(goStep);
+      }
+
+      goStep();
+    },
+    leave(el, done) {
+      const steps = 20;
+      let curStep = 0;
+
+      function goStep() {
+        if (curStep >= steps) {
+          el.style.opacity = 0;
+          done();
+          return;
+        }
+
+        el.style.opacity = 1 - 1 / steps * curStep++;
+        requestAnimationFrame(goStep);
+      }
+
+      goStep();
+    }
+  };
 }
 
 export default Task;
